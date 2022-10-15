@@ -1,5 +1,6 @@
 package impl.utils;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -16,5 +17,14 @@ public class FileHelper {
         Path path = Paths.get(fileStorage + filename);
         Path newFile = Files.createFile(path);
         Files.write(newFile, content);
+    }
+
+    public static void createDirIfNotExist(String dirPath) {
+        try {
+            File theDir = new File(dirPath);
+            theDir.mkdirs();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

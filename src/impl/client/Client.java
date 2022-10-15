@@ -20,6 +20,8 @@ public class Client {
 
 
     public void run(String ADDRESS, int PORT) {
+
+        FileHelper.createDirIfNotExist(fileStorage);
         try (Socket socket = new Socket(ADDRESS, PORT);
              ObjectOutputStream output = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream input = new ObjectInputStream(socket.getInputStream())

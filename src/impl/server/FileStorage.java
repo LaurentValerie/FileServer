@@ -1,5 +1,7 @@
 package impl.server;
 
+import impl.utils.FileHelper;
+
 import java.io.*;
 
 import java.nio.file.Files;
@@ -34,7 +36,7 @@ public class FileStorage implements Serializable {
     }
 
     public static void save() {
-        String saveName = saveDir + "map.ser";
+        String saveName = getSaveDir() + "map.ser";
         Path savePath = Path.of(saveName);
         if (!Files.exists(savePath)) {
             try {
@@ -54,7 +56,7 @@ public class FileStorage implements Serializable {
     }
 
     public static void load() {
-        String filename = saveDir + "map.ser";
+        String filename = getSaveDir() + "map.ser";
         if (Files.exists(Paths.get(filename))) {
             try (FileInputStream fileInputStream = new FileInputStream(filename);
                  ObjectInputStream ois = new ObjectInputStream(fileInputStream)
@@ -69,6 +71,12 @@ public class FileStorage implements Serializable {
     }
 
     public static String getStoragePath(){
+        FileHelper.createDirIfNotExist(filesDir);
         return filesDir;
+    }
+
+    private static String getSaveDir() {
+        FileHelper.createDirIfNotExist(saveDir);
+        return saveDir;
     }
 }
