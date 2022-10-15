@@ -16,7 +16,7 @@ import static impl.utils.RequestType.*;
 
 public class Client {
     private static final String fileStorage = System.getProperty("user.dir") +
-            File.separator + "src" + File.separator + "client" + File.separator + "data" + File.separator;
+            File.separator + "client" + File.separator + "data" + File.separator;
 
 
     public void run(String ADDRESS, int PORT) {

@@ -12,9 +12,9 @@ public class FileStorage implements Serializable {
     private static final long serialVersionUID = 1L;
     private static ConcurrentHashMap<Integer, String> filesMap = new ConcurrentHashMap<>();
     private static final String filesDir = System.getProperty("user.dir") +
-            File.separator + "src" + File.separator + "server" + File.separator + "data" + File.separator;
+            File.separator + "server" + File.separator + "data" + File.separator;
     private static final String saveDir = System.getProperty("user.dir") +
-            File.separator + "src" + File.separator + "server" + File.separator + "save" + File.separator;
+            File.separator + "server" + File.separator + "save" + File.separator;
 
     public static String getFileNameByID(int id) {
         return filesMap.get(id);
